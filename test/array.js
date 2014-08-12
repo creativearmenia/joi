@@ -222,6 +222,18 @@ describe('array', function () {
         });
     });
 
+    describe('#unique', function () {
+
+        it('validates array to ensure that there is no duplicates', function (done) {
+
+            var schema = Joi.array();
+            Helper.validate(schema, [
+                [[1, 1, 2], false],
+                [[1,2,3], true]
+            ], done);
+        });
+    });
+
     describe('#validate', function () {
 
         it('should, by default, allow undefined, allow empty array', function (done) {
